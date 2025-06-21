@@ -84,7 +84,7 @@ export class BaseVisitor extends Visitor {
     }
     const mapped = filter(map(node, subNode => visitor(subNode)))
 
-    return mapped.length === 1 ? mapped[0] : mapped
+    return mapped.length === 1 ? mapped[0] : (mapped as unknown as ASTNode)
   }
 
   protected mergeOperands(from = [], to = [], dividers = []): ASTNode[] {
